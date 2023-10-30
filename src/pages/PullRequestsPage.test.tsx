@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import PullRequestsPage from './PullRequestsPage';
 import * as hooks from '../hooks/useSearchPullRequests'
 
@@ -61,6 +61,39 @@ describe('<PullRequestsPage />', () => {
 
           // Check if the error message is displayed
           expect(screen.getByText('...Loading')).toBeInTheDocument();
+      })
+
+      it('should display no results', () => {
+        (mockUseSearchPullRequests as jest.Mock).mockReturnValue({
+            loading: false,
+            error: null,
+            data: [],
+            getPullRequests: jest.fn(),
+          });
+
+          render(<PullRequestsPage />);
+
+          // Check if the message is displayed
+          expect(screen.getByText('No Pull Requests found')).toBeInTheDocument();
+      })
+
+      it('should call getPullRequests', () => {
+        const getPullRequestsMock = jest.fn();
+        (mockUseSearchPullRequests as jest.Mock).mockReturnValue({
+            loading: false,
+            error: null,
+            data: [],
+            getPullRequests: getPullRequestsMock,
+          });
+
+          const { getByPlaceholderText, getByText } = render(<PullRequestsPage />);
+
+          const input = getByPlaceholderText('https://github.com/org/repo/pulls');
+          const searchButton = getByText('Search');
+          fireEvent.change(input, { target: { value: 'https://github.com/org/repo/pulls' } });
+          fireEvent.click(searchButton);
+
+          expect(getPullRequestsMock).toHaveBeenCalledWith('/org/repo');
       })
 });
 

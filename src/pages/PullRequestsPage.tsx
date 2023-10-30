@@ -12,9 +12,10 @@ const PullRequestsPage = () => {
     const searchUpdate = (repo: string) => {
         getPullRequests(repo);
     };
-    // doubt any gain is gotten from useMemo here, usually I would profile to be sure
+    // doubt any gain from useMemo here, usually I would profile to be sure
     const hasError = useMemo(() => Boolean(error), [error]);
-    const displayResults = useMemo(() => Boolean(!loading && !hasError && data.length > 0), [loading, hasError, data])
+    const displayResults = useMemo(() => Boolean(!loading && !hasError && data.length > 0), [loading, hasError, data]);
+    const noResults = useMemo(() => Boolean(!loading && !hasError && data.length === 0), [loading, hasError, data]);
     return (
         <div className={styles.container}>
             <h2>Pull Requests</h2>
@@ -23,6 +24,9 @@ const PullRequestsPage = () => {
             {error && (<ErrorMessage errorMessage={error} />)}
             {displayResults && (
             <PullRequestsList pullRequests={data} />
+            )}
+            {noResults && (
+                <p>No Pull Requests found</p>
             )}
         </div>
     

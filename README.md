@@ -70,20 +70,20 @@ This application has been designed with accessibility in mind to ensure that it 
 ---------------------------------|---------|----------|---------|---------|-------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------------|---------|----------|---------|---------|-------------------
-All files                        |   96.51 |    84.61 |    91.3 |   96.34 |                   
+All files                        |   97.72 |    88.88 |   95.83 |   97.59 |                   
  src                             |     100 |      100 |     100 |     100 |                   
   App.tsx                        |     100 |      100 |     100 |     100 |                   
  src/components/PullRequestsList |     100 |       50 |     100 |     100 |                   
   PullRequestRow.tsx             |     100 |      100 |     100 |     100 |                   
-  PullRequestsList.tsx           |     100 |       50 |     100 |     100 | 25                
- src/components/Search           |     100 |      100 |     100 |     100 |                   
-  Search.tsx                     |     100 |      100 |     100 |     100 |                   
- src/components/shared           |     100 |      100 |     100 |     100 |                   
-  ErrorMessage.tsx               |     100 |      100 |     100 |     100 |                   
-  Loading.tsx                    |     100 |      100 |     100 |     100 |                   
- src/hooks                       |   92.85 |      100 |    87.5 |    92.3 |                   
-  useSearchPullRequests.ts       |   92.85 |      100 |    87.5 |    92.3 | 35,49             
- src/pages                       |   94.11 |       90 |      75 |   93.33 |                   
-  PullRequestsPage.tsx           |   94.11 |       90 |      75 |   93.33 | 13                
+  PullRequestsList.tsx           |     100 |       50 |     100 |     100 | 25
+ src/components/Search           |     100 |      100 |     100 |     100 | 
+  Search.tsx                     |     100 |      100 |     100 |     100 | 
+ src/components/shared           |     100 |      100 |     100 |     100 | 
+  ErrorMessage.tsx               |     100 |      100 |     100 |     100 | 
+  Loading.tsx                    |     100 |      100 |     100 |     100 | 
+ src/hooks                       |   92.85 |      100 |    87.5 |    92.3 | 
+  useSearchPullRequests.ts       |   92.85 |      100 |    87.5 |    92.3 | 35,49
+ src/pages                       |     100 |    93.33 |     100 |     100 | 
+  PullRequestsPage.tsx           |     100 |    93.33 |     100 |     100 | 10
 ---------------------------------|---------|----------|---------|---------|-------------------
 
