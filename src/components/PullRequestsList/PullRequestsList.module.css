@@ -1,0 +1,89 @@
+table {
+    border-collapse: collapse; 
+    table-layout: fixed;
+    background-color: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-300);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  tfoot {
+    background-color: var(--color-neutral-500);
+    color: var(--color-neutral-100);
+  }
+  
+  td, th {
+    padding: 0.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    border: 1px solid var(--color-neutral-300);
+  }
+
+  th:first-child {
+    width: 60%;
+  }
+
+  th:last-child {
+    width: 15%;
+    text-align: right;
+  }
+
+  tbody tr td:last-child {
+    text-align: right;
+  }
+  
+  th {
+    background-color: var(--color-neutral-500);
+    outline: solid 1px var(--color-neutral-300);
+    color: var(--color-neutral-100);
+    text-transform: uppercase;
+  }
+  
+  tr:nth-of-type(even) td {
+    background-color: var(--color-neutral-300);
+  }
+
+  tr:nth-of-type(even) td {
+    outline: solid 1px var(--color-neutral-100);
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    
+    table thead, table tfoot {
+        /*
+      hide the colum head and footer by clipping rect, height, width to zero
+      */
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 0px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 0px;
+    }
+    
+    table tr {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    
+    table td {
+      display: block;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      use the data-label attribute
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+  }

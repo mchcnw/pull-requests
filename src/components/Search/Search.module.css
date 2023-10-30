@@ -1,0 +1,25 @@
+.searchBar {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.searchBar label {
+   font-weight: 600;
+}
+.searchBar input {
+    line-height: 1rem;
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .searchBar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    
+}
+
